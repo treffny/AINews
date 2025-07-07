@@ -16,9 +16,13 @@ def get_web_content(url):
 def extract_news_from_sciencedaily(html_content):
     soup = BeautifulSoup(html_content, 'html.parser')
     news_items = []
-    articles = soup.find_all("div", class_=lambda x: x and ("latest-news-item" in x or ("col-xs-12" in x and "col-sm-9" in x)))
+    articles = soup.find_all("div", class_="latest-news-item") + \
+               soup.find_all("div", class_="card") + \
+               soup.find_all("li", class_="list-group-item")
     for article in articles:
-        title_tag = article.find("a", class_="latest-head") or article.find("a", class_="card-title")
+        title_tag = article.find("a", class_="latest-head") or \
+                    article.find("a", class_="card-title") or \
+                    article.find("a") # General search for any link within the article
         if title_tag:
             title = title_tag.get_text(strip=True)
             link = title_tag.get("href")
@@ -101,7 +105,7 @@ def generate_report_content():
                 ref_count += 1
 
     # --- Construct the report ---
-    report_text = f"""# Daily AI News Report\n\n## Date: {today_date}\n\n### General AI News\n\n"""
+    report_text = f"""## Date: {today_date}\n\n### General AI News\n\n"""
     if not report_points:
         report_text += "*   No new AI news found today. Please check back later.\n"
     else:
