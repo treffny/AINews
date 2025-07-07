@@ -1,4 +1,4 @@
-# Artifical Intelligence Update Report
+# Daily AI News Report
 
 ## Date: July 07, 2025
 
