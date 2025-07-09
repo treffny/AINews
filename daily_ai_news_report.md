@@ -1,36 +1,38 @@
 # Daily AI News Report
 
-## Date: July 07, 2025
+## Date: July 09, 2025
 
 ### General AI News
 
-1. **US servers in Singapore fraud case may contain Nvidia chips, minister says** - Servers used in a fraud case that Singapore announced last week were supplied by U.S. firms and may have contained Nvidia's advanced chips, a government minister said on Monday. (Source: Reuters) [Ref1]
+1. **Nvidia becomes first company to clinch $4 trillion in market value** - Nvidia notched a market capitalization of $4 trillion on Wednesday, making it the first public company in the world to reach the milestone and solidifying its position as one of Wall Street's most-favored stocks. (Source: Reuters) [Ref1]
 
-2. **Microsoft to cut about 4% of jobs amid hefty AI bets** - Microsoft will lay off nearly 4% of its workforce, the company said on Wednesday, in the latest job cuts as the tech giant looks to rein in costs amid hefty investments in artificial intelligence infrastructure. (Source: Reuters) [Ref2]
+2. **AI-driven combat aid trialed for Eurofighter Typhoon** - Europe's biggest defense company BAE Systems is partnering with Swedish firm Avioniq to test an AI-driven decision making aid on the Eurofighter Typhoon, aiming to enhance pilot situational awareness in combat. (Source: Reuters) [Ref2]
 
-3. **TikTok building new version of app ahead of expected US sale** - TikTok is building a new version of its app for users in the United States ahead of a planned sale of the app to a group of investors, according to reports. (Source: Reuters) [Ref3]
+3. **Turkish court blocks access to Grok chatbot content** - A Turkish court blocked access to some content from Grok, developed by Elon Musk-founded company xAI, after authorities said the chatbot generated responses insulting President Tayyip Erdogan and religious values. (Source: Reuters) [Ref3]
 
-4. **OpenAI said it has no active plans to use Google's in-house chip** - OpenAI said it has no active plans to use Google's in-house chip to power its products, two days after reports on the AI lab's move to turn to its competitor's artificial intelligence chips to meet growing demand. (Source: Reuters) [Ref4]
+4. **Meta races to secure top AI talent for Superintelligence Labs** - Meta Platforms is racing to secure top artificial intelligence talent for its newly created Superintelligence Labs to better compete with rivals including OpenAI, Google and Anthropic. (Source: Reuters) [Ref4]
 
-5. **Elon Musk's xAI completes $5 billion debt raise** - Elon Musk's xAI has completed a $5 billion debt raise alongside a separate $5 billion strategic equity investment, as the startup looks to expand its AI infrastructure through data centres amid intensifying competition. (Source: Reuters) [Ref5]
+5. **IBM announces new AI-optimized data center chips** - International Business Machines announced a new line of data center chips and servers that it says will be more power-efficient than rivals and will simplify the process of rolling out artificial intelligence in business operations. (Source: Reuters) [Ref5]
 
 ### AI in Defense and Security
 
-1. **3 Ways Automation And AI Strengthen Cyber Defenses** - AI and automation are transforming cybersecurity by reducing noise in SOC operations, optimizing workflows, and enabling automated threat response at machine speed. (Source: Forbes) [Ref6]
+1. **Risks the US faces if adversaries dominate the AI battle** - The battle for AI dominance between the US and China is growing more heated, with experts discussing the risks and implications for national security and defense capabilities. (Source: Breaking Defense) [Ref6]
 
-2. **AI-Powered Cyber Threats: From Zero-Day Exploits To Deepfakes** - Exploring how AI is fueling next-gen cyberattacks—from zero-day exploits to deepfake scams—and how organizations can build resilience against intelligent threats. (Source: Sangfor) [Ref7]
+2. **AI-Enhanced Attacks Require Increased Vigilance from Government Security Officers** - Bad actors are becoming more successful with artificial intelligence, requiring increased vigilance from government security officers to counter AI-enhanced cyber attacks. (Source: State Tech Magazine) [Ref7]
 
-3. **AI Strengthening Cybersecurity Software, ISG Says** - Growing threats make it increasingly important for enterprises to deploy advanced cybersecurity software and to understand its capabilities, according to ISG research. (Source: Business Wire) [Ref8]
+3. **Safe Pro Positioned to Capitalize on $30+ Billion in New U.S. Defense Spending on AI** - Safe Pro is positioned to capitalize on over $30 billion in new U.S. defense spending on AI and drones, with proven AI threat detection systems tested with 1.66M+ drone images in Ukraine. (Source: AccessWire) [Ref8]
 
-4. **Samsung Introduces Future-Ready Mobile Security for Personalized AI** - Samsung is introducing Knox Enhanced Encrypted Protection (KEEP), a new architecture designed to safeguard the next generation of personalized, AI-powered experiences. (Source: Samsung) [Ref9]
+4. **DARPA to announce AI Cyber Challenge winners** - DARPA will announce AI Cyber Challenge winners and bring new interactive AIxCC Experience to accelerate the transition of competition technology to public and private sectors. (Source: DARPA) [Ref9]
 
-5. **Criminal Hackers Are Employing AI To Facilitate Identity Theft** - Cybercriminals are employing artificial intelligence to steal identities by infiltrating and examining victim networks and employing automated phishing techniques. (Source: Forbes) [Ref10]
+5. **The Wild Wild West of Agentic AI - An Attack Surface CISOs Can't Afford to Ignore** - Agentic AI promises autonomous threat detection and process automation at machine speed but introduces new security risks and unseen attack surfaces that CISOs must address. (Source: Security Week) [Ref10]
 
 ### Important Tools and Innovations
 
-1. **Latest AI Breakthroughs: AI-Developed Cool Paint Formula** - Scientists have used AI to develop a new paint formula that keeps buildings significantly cooler by reflecting solar radiation. The innovation could revolutionize energy efficiency in construction. (Source: Crescendo.ai) [Ref11]
+1. **Google Announces New AI Tools for Mental Health Research and Treatment** - Google has launched two AI-driven initiatives to improve global mental health care, including a new field guide for organizations and a research program for treatment innovation. (Source: The AI Insider) [Ref11]
 
-2. **Gen AI Will Accelerate the Innovation Adoption Cycle** - Gen AI and agents will improve the ways we engage with existing apps by creating intelligent, invisible flows. New AI-native apps will be developed that will transform user experiences. (Source: PYMNTS) [Ref12]
+2. **AI Impact Awards 2025: New Innovations Seek to Gamify the Retail Experience** - From delivering real-time store data to at-home dermatology consultations, companies are making AI strides in the retail sector with innovative new tools and applications. (Source: Newsweek) [Ref12]
+
+3. **U.S. and Israel Pledge to Work Together to Unleash AI Innovation** - Secretary Wright and Secretary Burgum signed a Memorandum of Understanding to advance collaboration on energy and artificial intelligence innovation with Israel. (Source: Department of Energy) [Ref13]
 
 ## References
 
@@ -39,10 +41,11 @@
 [Ref3] https://www.reuters.com/technology/artificial-intelligence/
 [Ref4] https://www.reuters.com/technology/artificial-intelligence/
 [Ref5] https://www.reuters.com/technology/artificial-intelligence/
-[Ref6] https://www.forbes.com/councils/forbestechcouncil/2025/07/07/3-ways-automation-and-ai-strengthen-cyber-defenses/
-[Ref7] https://www.sangfor.com/blog/cybersecurity/ai-powered-cyber-threats-zero-day-deepfakes
-[Ref8] https://www.businesswire.com/news/home/20250707503202/en/AI-Strengthening-Cybersecurity-Software-ISG-Says
-[Ref9] https://news.samsung.com/global/samsung-introduces-future-ready-mobile-security-for-personalized-ai-experiences
-[Ref10] https://www.forbes.com/sites/chuckbrooks/2025/07/06/criminal-hackers-are-employing-ai-to-facilitate-identity-theft/
-[Ref11] https://www.crescendo.ai/news/latest-ai-news-and-updates
-[Ref12] https://www.pymnts.com/artificial-intelligence-2/2025/innovation-used-to-be-about-generations-gen-ai-makes-it-about-everyone/
+[Ref6] https://breakingdefense.com/2025/07/risks-the-us-faces-if-adversaries-dominate-the-ai-battle-video-3/
+[Ref7] https://statetechmagazine.com/article/2025/07/ai-enhanced-attacks-require-increased-vigilance-government-security-officers
+[Ref8] https://www.kark.com/business/press-releases/accesswire/1047121/safe-pro-positioned-to-capitalize-on-30-billion-in-new-u-s-defense-spending-on-ai-and-drones
+[Ref9] https://www.darpa.mil/news/2025/ai-cyber-challenge-winners-def-con-33
+[Ref10] https://www.securityweek.com/the-wild-wild-west-of-agentic-ai-an-attack-surface-cisos-cant-afford-to-ignore/
+[Ref11] https://theaiinsider.tech/2025/07/08/google-announces-new-ai-tools-for-mental-health-research-and-treatment/
+[Ref12] https://www.newsweek.com/ai-impact-awards-2025-brand-retail-2086814
+[Ref13] https://www.energy.gov/articles/us-and-israel-pledge-work-together-unleash-ai-innovation-new-memorandum-understanding
