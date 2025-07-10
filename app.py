@@ -395,18 +395,14 @@ with col3:
                 current_dir = os.getcwd()
                 target_dir = "/home/ubuntu/AINews"
                 
-                if os.path.exists(target_dir):
-                    os.chdir(target_dir)
-                    
+                # Check if script exists in current directory
+                if os.path.exists("generate_and_push_report.py"):
                     result = subprocess.run(
                         ["python3", "generate_and_push_report.py"], 
                         capture_output=True, 
                         text=True,
-                        timeout=180,
-                        cwd=target_dir
+                        timeout=180
                     )
-                    
-                    os.chdir(current_dir)
                     
                     if result.returncode == 0:
                         st.markdown('<div class="status-success">✅ News updated successfully!</div>', unsafe_allow_html=True)
@@ -416,7 +412,7 @@ with col3:
                         error_msg = result.stderr if result.stderr else "Unknown error"
                         st.markdown(f'<div class="status-error">❌ Update failed: {error_msg[:100]}...</div>', unsafe_allow_html=True)
                 else:
-                    st.markdown('<div class="status-error">❌ Script directory not found</div>', unsafe_allow_html=True)
+                    st.markdown('<div class="status-error">❌ Update script not found in current directory</div>', unsafe_allow_html=True)
                     
             except subprocess.TimeoutExpired:
                 st.markdown('<div class="status-error">⏰ Update timed out. Please try again.</div>', unsafe_allow_html=True)
