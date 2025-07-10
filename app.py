@@ -1,8 +1,7 @@
 import streamlit as st
-import subprocess
 import os
 from datetime import datetime
-import time
+import re
 
 # Page configuration
 st.set_page_config(
@@ -169,12 +168,16 @@ st.markdown("""
         border-left: 4px solid #3b82f6;
         transition: all 0.3s ease;
         position: relative;
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
     }
     
     .news-item:hover {
         background: #f1f5f9;
         transform: translateX(4px);
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border-left-color: #1d4ed8;
     }
     
     .news-number {
@@ -211,66 +214,22 @@ st.markdown("""
         color: #94a3b8;
         font-size: 0.85rem;
         font-style: italic;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
     
-    /* Button styling */
-    .refresh-button {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        color: white;
-        border: none;
-        border-radius: 12px;
-        padding: 0.75rem 1.5rem;
-        font-weight: 600;
-        font-size: 0.9rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-        width: 100%;
-    }
-    
-    .refresh-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
-    }
-    
-    .stButton > button {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 12px !important;
-        padding: 0.75rem 1.5rem !important;
-        font-weight: 600 !important;
-        font-size: 0.9rem !important;
-        transition: all 0.3s ease !important;
-        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important;
-        width: 100% !important;
-    }
-    
-    .stButton > button:hover {
-        transform: translateY(-2px) !important;
-        box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4) !important;
-        background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
-    }
-    
-    /* Status messages */
-    .status-success {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        color: white;
-        padding: 1rem;
-        border-radius: 12px;
-        text-align: center;
-        margin: 1rem 0;
+    .click-hint {
+        color: #3b82f6;
+        font-size: 0.8rem;
         font-weight: 500;
+        margin-top: 0.5rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
     
-    .status-error {
-        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-        color: white;
-        padding: 1rem;
-        border-radius: 12px;
-        text-align: center;
-        margin: 1rem 0;
-        font-weight: 500;
+    .news-item:hover .click-hint {
+        opacity: 1;
     }
     
     /* Footer */
@@ -384,52 +343,16 @@ with col2:
 with col3:
     st.markdown("""
     <div class="control-card">
-        <h3 class="card-title">🔄 Manual Update</h3>
+        <h3 class="card-title">📊 Quick Stats</h3>
         <div class="card-content">
-    """, unsafe_allow_html=True)
-    
-    # Refresh button
-    if st.button("🔄 Refresh News", help="Fetch latest AI news", use_container_width=True):
-        with st.spinner("🔍 Fetching latest AI news..."):
-            try:
-                current_dir = os.getcwd()
-                target_dir = "/home/ubuntu/AINews"
-                
-                # Check if script exists in current directory
-                if os.path.exists("generate_and_push_report.py"):
-                    result = subprocess.run(
-                        ["python3", "generate_and_push_report.py"], 
-                        capture_output=True, 
-                        text=True,
-                        timeout=180
-                    )
-                    
-                    if result.returncode == 0:
-                        st.markdown('<div class="status-success">✅ News updated successfully!</div>', unsafe_allow_html=True)
-                        time.sleep(2)
-                        st.rerun()
-                    else:
-                        error_msg = result.stderr if result.stderr else "Unknown error"
-                        st.markdown(f'<div class="status-error">❌ Update failed: {error_msg[:100]}...</div>', unsafe_allow_html=True)
-                else:
-                    st.markdown('<div class="status-error">❌ Update script not found in current directory</div>', unsafe_allow_html=True)
-                    
-            except subprocess.TimeoutExpired:
-                st.markdown('<div class="status-error">⏰ Update timed out. Please try again.</div>', unsafe_allow_html=True)
-            except Exception as e:
-                st.markdown(f'<div class="status-error">❌ Error: {str(e)[:50]}...</div>', unsafe_allow_html=True)
-            finally:
-                try:
-                    os.chdir(current_dir)
-                except:
-                    pass
-    
-    st.markdown("""
+            <strong>Sources:</strong> Multiple AI news outlets<br>
+            <strong>Focus:</strong> 40-50% Defense & Security<br>
+            <strong>Updates:</strong> <span style="color: #10b981;">Daily at 1 AM</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
-# Load and display content
+# Load and display content with clickable news items
 try:
     with open("daily_ai_news_report.md", "r") as f:
         content = f.read()
@@ -437,7 +360,18 @@ try:
     lines = content.split('\n')
     current_section = ""
     current_date = ""
+    references = {}
     
+    # First pass: collect all references
+    for line in lines:
+        if line.startswith('[Ref') and ']' in line:
+            ref_parts = line.split('] ', 1)
+            if len(ref_parts) == 2:
+                ref_num = ref_parts[0].replace('[', '').replace('Ref', '')
+                ref_url = ref_parts[1]
+                references[ref_num] = ref_url
+    
+    # Second pass: display content with clickable items
     for line in lines:
         if line.startswith('## Date:'):
             current_date = line.replace('## Date:', '').strip()
@@ -483,8 +417,10 @@ try:
                     title = title_part[1]
                     content_part = parts[1]
                     
-                    # Extract source
+                    # Extract source and reference
                     source_match = content_part.rfind('(Source: ')
+                    ref_match = re.search(r'\[Ref(\d+)\]', content_part)
+                    
                     if source_match != -1:
                         content_text = content_part[:source_match].strip()
                         source_text = content_part[source_match:].strip()
@@ -492,13 +428,21 @@ try:
                         content_text = content_part
                         source_text = ""
                     
+                    # Get the reference URL
+                    ref_url = "#"
+                    if ref_match:
+                        ref_num = ref_match.group(1)
+                        ref_url = references.get(ref_num, "#")
+                    
+                    # Create clickable news item
                     st.markdown(f"""
-                    <div class="news-item">
+                    <a href="{ref_url}" target="_blank" class="news-item" style="text-decoration: none; color: inherit;">
                         <div class="news-number">{number}</div>
                         <div class="news-title">{title}</div>
                         <div class="news-content">{content_text}</div>
                         <div class="news-source">{source_text}</div>
-                    </div>
+                        <div class="click-hint">🔗 Click to read full article</div>
+                    </a>
                     """, unsafe_allow_html=True)
                     
         elif line.startswith('## References'):
@@ -530,7 +474,7 @@ except FileNotFoundError:
     <div class="news-container">
         <div style="text-align: center; padding: 3rem; color: #64748b;">
             <h2>📄 No Report Available</h2>
-            <p>Click the 'Refresh News' button to generate the latest AI news report.</p>
+            <p>The daily AI news report will be automatically generated at 1:00 AM London time.</p>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -540,7 +484,7 @@ except Exception as e:
     <div class="news-container">
         <div style="text-align: center; padding: 3rem; color: #64748b;">
             <h2>⚠️ Loading Error</h2>
-            <p>Unable to load the report. Please try refreshing.</p>
+            <p>Unable to load the report. Please try again later.</p>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -551,7 +495,7 @@ st.markdown("""
     <div class="footer-title">🤖 AI Intelligence System</div>
     <div class="footer-content">
         Automated daily briefings • Professional analysis • Real-time monitoring<br>
-        📧 Newsletter delivery • 🕐 Scheduled updates • 🔄 Manual refresh capability
+        📧 Newsletter delivery • 🕐 Scheduled updates • 🔗 Direct article access
     </div>
 </div>
 """, unsafe_allow_html=True)
