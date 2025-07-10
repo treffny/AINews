@@ -214,7 +214,7 @@ with col1:
     
     # Show last updated time
     try:
-        report_path = "/home/ubuntu/AINews/daily_ai_news_report.md"
+        report_path = "daily_ai_news_report.md"
         if os.path.exists(report_path):
             mod_time = os.path.getmtime(report_path)
             last_updated = datetime.fromtimestamp(mod_time).strftime("%B %d, %Y at %I:%M %p")
@@ -245,6 +245,7 @@ with col3:
         with st.spinner("🔍 Fetching latest AI news... This may take a moment."):
             try:
                 # Change to the correct directory and run the script
+                original_dir = os.getcwd()
                 os.chdir("/home/ubuntu/AINews")
                 result = subprocess.run(
                     ["python3", "generate_and_push_report.py"], 
@@ -269,7 +270,7 @@ with col3:
 
 # Load and display the report content
 try:
-    with open("/home/ubuntu/AINews/daily_ai_news_report.md", "r") as f:
+    with open("daily_ai_news_report.md", "r") as f:
         content = f.read()
     
     # Parse the content
