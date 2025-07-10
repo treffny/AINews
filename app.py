@@ -15,7 +15,7 @@ st.set_page_config(
 st.markdown("""
 <style>
     /* Import Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     
     /* Global Styles */
     .main {
@@ -30,18 +30,11 @@ st.markdown("""
     header {visibility: hidden;}
     .stDeployButton {visibility: hidden;}
     
-    /* Main container */
-    .main-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem 1rem;
-    }
-    
     /* Header styling */
     .header-section {
         text-align: center;
-        margin-bottom: 3rem;
-        padding: 3rem 0;
+        margin-bottom: 2rem;
+        padding: 2rem;
         background: white;
         border-radius: 20px;
         box-shadow: 0 4px 20px rgba(0,0,0,0.08);
@@ -49,7 +42,7 @@ st.markdown("""
     }
     
     .main-title {
-        font-size: 3.5rem;
+        font-size: 3rem;
         font-weight: 700;
         background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
         -webkit-background-clip: text;
@@ -60,7 +53,7 @@ st.markdown("""
     }
     
     .subtitle {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         color: #64748b;
         margin: 1rem 0 0 0;
         font-weight: 400;
@@ -70,25 +63,19 @@ st.markdown("""
         display: inline-block;
         background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
         color: white;
-        padding: 0.75rem 2rem;
+        padding: 0.75rem 1.5rem;
         border-radius: 50px;
         font-weight: 600;
-        margin-top: 1.5rem;
+        margin-top: 1rem;
         box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
     }
     
-    /* Control panel */
-    .control-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-    }
-    
+    /* Control cards */
     .control-card {
         background: white;
         border-radius: 16px;
         padding: 1.5rem;
+        margin-bottom: 1rem;
         box-shadow: 0 2px 10px rgba(0,0,0,0.06);
         border: 1px solid #f1f5f9;
         transition: all 0.3s ease;
@@ -123,6 +110,7 @@ st.markdown("""
         font-size: 0.85rem;
         font-weight: 500;
         border: 1px solid #bae6fd;
+        display: inline-block;
     }
     
     /* News sections */
@@ -139,38 +127,35 @@ st.markdown("""
         display: flex;
         align-items: center;
         gap: 1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
         padding-bottom: 1rem;
         border-bottom: 2px solid #f1f5f9;
     }
     
     .section-title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         font-weight: 700;
         color: #1e293b;
         margin: 0;
     }
     
     .section-icon {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
     
     /* News items */
-    .news-grid {
-        display: grid;
-        gap: 1.5rem;
-    }
-    
     .news-item {
         background: #f8fafc;
         border-radius: 12px;
         padding: 1.5rem;
+        margin-bottom: 1rem;
         border-left: 4px solid #3b82f6;
         transition: all 0.3s ease;
         position: relative;
         cursor: pointer;
         text-decoration: none;
         color: inherit;
+        display: block;
     }
     
     .news-item:hover {
@@ -178,6 +163,8 @@ st.markdown("""
         transform: translateX(4px);
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         border-left-color: #1d4ed8;
+        text-decoration: none;
+        color: inherit;
     }
     
     .news-number {
@@ -232,35 +219,12 @@ st.markdown("""
         opacity: 1;
     }
     
-    /* Footer */
-    .footer-section {
-        background: #1e293b;
-        color: #cbd5e1;
-        padding: 2rem;
-        border-radius: 20px;
-        text-align: center;
-        margin-top: 3rem;
-    }
-    
-    .footer-title {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: white;
-        margin-bottom: 1rem;
-    }
-    
-    .footer-content {
-        font-size: 0.9rem;
-        line-height: 1.6;
-        opacity: 0.8;
-    }
-    
     /* References section */
     .references-section {
         background: #f8fafc;
         border-radius: 16px;
         padding: 1.5rem;
-        margin-top: 2rem;
+        margin-top: 1rem;
         border: 1px solid #e2e8f0;
     }
     
@@ -277,13 +241,33 @@ st.markdown("""
         color: #1d4ed8;
     }
     
+    /* Footer */
+    .footer-section {
+        background: #1e293b;
+        color: #cbd5e1;
+        padding: 2rem;
+        border-radius: 20px;
+        text-align: center;
+        margin-top: 2rem;
+    }
+    
+    .footer-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 1rem;
+    }
+    
+    .footer-content {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        opacity: 0.8;
+    }
+    
     /* Responsive design */
     @media (max-width: 768px) {
         .main-title {
-            font-size: 2.5rem;
-        }
-        .control-grid {
-            grid-template-columns: 1fr;
+            font-size: 2.2rem;
         }
         .news-container {
             padding: 1.5rem;
@@ -353,141 +337,142 @@ with col3:
     """, unsafe_allow_html=True)
 
 # Load and display content with clickable news items
-try:
-    with open("daily_ai_news_report.md", "r") as f:
-        content = f.read()
-    
-    lines = content.split('\n')
-    current_section = ""
-    current_date = ""
-    references = {}
-    
-    # First pass: collect all references
-    for line in lines:
-        if line.startswith('[Ref') and ']' in line:
-            ref_parts = line.split('] ', 1)
-            if len(ref_parts) == 2:
-                ref_num = ref_parts[0].replace('[', '').replace('Ref', '')
-                ref_url = ref_parts[1]
-                references[ref_num] = ref_url
-    
-    # Second pass: display content with clickable items
-    for line in lines:
-        if line.startswith('## Date:'):
-            current_date = line.replace('## Date:', '').strip()
-            # Update the date display
-            st.markdown(f"""
-            <script>
-            document.querySelector('.date-display').innerHTML = '📅 {current_date}';
-            </script>
-            """, unsafe_allow_html=True)
+def parse_and_display_content():
+    try:
+        with open("daily_ai_news_report.md", "r") as f:
+            content = f.read()
+        
+        lines = content.split('\n')
+        current_section = ""
+        current_date = ""
+        references = {}
+        
+        # First pass: collect all references
+        for line in lines:
+            if line.startswith('[Ref') and ']' in line:
+                ref_parts = line.split('] ', 1)
+                if len(ref_parts) == 2:
+                    ref_num = ref_parts[0].replace('[', '').replace('Ref', '')
+                    ref_url = ref_parts[1]
+                    references[ref_num] = ref_url
+        
+        # Second pass: display content
+        in_section = False
+        
+        for line in lines:
+            if line.startswith('## Date:'):
+                current_date = line.replace('## Date:', '').strip()
+                
+            elif line.startswith('### '):
+                if in_section:  # Close previous section
+                    st.markdown('</div>', unsafe_allow_html=True)
+                
+                current_section = line.replace('### ', '').strip()
+                
+                # Choose icon based on section
+                if "General" in current_section:
+                    icon = "🤖"
+                elif "Defense" in current_section or "Security" in current_section:
+                    icon = "🛡️"
+                elif "Tools" in current_section or "Innovation" in current_section:
+                    icon = "🔧"
+                else:
+                    icon = "📰"
+                
+                st.markdown(f"""
+                <div class="news-container">
+                    <div class="section-header">
+                        <span class="section-icon">{icon}</span>
+                        <h2 class="section-title">{current_section}</h2>
+                    </div>
+                """, unsafe_allow_html=True)
+                in_section = True
+                
+            elif line.strip() and line[0].isdigit() and '. **' in line:
+                # Parse news item
+                parts = line.split('** - ', 1)
+                if len(parts) == 2:
+                    title_part = parts[0].split('. **', 1)
+                    if len(title_part) == 2:
+                        number = title_part[0]
+                        title = title_part[1]
+                        content_part = parts[1]
+                        
+                        # Extract source and reference
+                        source_match = content_part.rfind('(Source: ')
+                        ref_match = re.search(r'\[Ref(\d+)\]', content_part)
+                        
+                        if source_match != -1:
+                            content_text = content_part[:source_match].strip()
+                            source_text = content_part[source_match:].strip()
+                        else:
+                            content_text = content_part
+                            source_text = ""
+                        
+                        # Get the reference URL
+                        ref_url = "#"
+                        if ref_match:
+                            ref_num = ref_match.group(1)
+                            ref_url = references.get(ref_num, "#")
+                        
+                        # Create clickable news item
+                        st.markdown(f"""
+                        <a href="{ref_url}" target="_blank" class="news-item">
+                            <div class="news-number">{number}</div>
+                            <div class="news-title">{title}</div>
+                            <div class="news-content">{content_text}</div>
+                            <div class="news-source">{source_text}</div>
+                            <div class="click-hint">🔗 Click to read full article</div>
+                        </a>
+                        """, unsafe_allow_html=True)
+                        
+            elif line.startswith('## References'):
+                if in_section:  # Close current section
+                    st.markdown('</div>', unsafe_allow_html=True)
+                
+                st.markdown("""
+                <div class="news-container">
+                    <div class="section-header">
+                        <span class="section-icon">📚</span>
+                        <h2 class="section-title">References</h2>
+                    </div>
+                    <div class="references-section">
+                """, unsafe_allow_html=True)
+                in_section = True
+                
+            elif line.startswith('[Ref') and ']' in line:
+                ref_parts = line.split('] ', 1)
+                if len(ref_parts) == 2:
+                    ref_num = ref_parts[0] + ']'
+                    ref_url = ref_parts[1]
+                    st.markdown(f'<a href="{ref_url}" target="_blank" class="reference-link"><strong>{ref_num}</strong> {ref_url}</a>', unsafe_allow_html=True)
+        
+        # Close any open sections
+        if in_section:
+            st.markdown('</div></div>', unsafe_allow_html=True)
             
-        elif line.startswith('### '):
-            if current_section:  # Close previous section
-                st.markdown('</div></div>', unsafe_allow_html=True)
-            
-            current_section = line.replace('### ', '').strip()
-            
-            # Choose icon based on section
-            if "General" in current_section:
-                icon = "🤖"
-            elif "Defense" in current_section or "Security" in current_section:
-                icon = "🛡️"
-            elif "Tools" in current_section or "Innovation" in current_section:
-                icon = "🔧"
-            else:
-                icon = "📰"
-            
-            st.markdown(f"""
-            <div class="news-container">
-                <div class="section-header">
-                    <span class="section-icon">{icon}</span>
-                    <h2 class="section-title">{current_section}</h2>
-                </div>
-                <div class="news-grid">
-            """, unsafe_allow_html=True)
-            
-        elif line.strip() and line[0].isdigit() and '. **' in line:
-            # Parse news item
-            parts = line.split('** - ', 1)
-            if len(parts) == 2:
-                title_part = parts[0].split('. **', 1)
-                if len(title_part) == 2:
-                    number = title_part[0]
-                    title = title_part[1]
-                    content_part = parts[1]
-                    
-                    # Extract source and reference
-                    source_match = content_part.rfind('(Source: ')
-                    ref_match = re.search(r'\[Ref(\d+)\]', content_part)
-                    
-                    if source_match != -1:
-                        content_text = content_part[:source_match].strip()
-                        source_text = content_part[source_match:].strip()
-                    else:
-                        content_text = content_part
-                        source_text = ""
-                    
-                    # Get the reference URL
-                    ref_url = "#"
-                    if ref_match:
-                        ref_num = ref_match.group(1)
-                        ref_url = references.get(ref_num, "#")
-                    
-                    # Create clickable news item
-                    st.markdown(f"""
-                    <a href="{ref_url}" target="_blank" class="news-item" style="text-decoration: none; color: inherit;">
-                        <div class="news-number">{number}</div>
-                        <div class="news-title">{title}</div>
-                        <div class="news-content">{content_text}</div>
-                        <div class="news-source">{source_text}</div>
-                        <div class="click-hint">🔗 Click to read full article</div>
-                    </a>
-                    """, unsafe_allow_html=True)
-                    
-        elif line.startswith('## References'):
-            if current_section:  # Close current section
-                st.markdown('</div></div>', unsafe_allow_html=True)
-            
-            st.markdown("""
-            <div class="news-container">
-                <div class="section-header">
-                    <span class="section-icon">📚</span>
-                    <h2 class="section-title">References</h2>
-                </div>
-                <div class="references-section">
-            """, unsafe_allow_html=True)
-            
-        elif line.startswith('[Ref') and ']' in line:
-            ref_parts = line.split('] ', 1)
-            if len(ref_parts) == 2:
-                ref_num = ref_parts[0] + ']'
-                ref_url = ref_parts[1]
-                st.markdown(f'<a href="{ref_url}" target="_blank" class="reference-link"><strong>{ref_num}</strong> {ref_url}</a>', unsafe_allow_html=True)
-    
-    # Close any open sections
-    if current_section:
-        st.markdown('</div></div>', unsafe_allow_html=True)
-    
-except FileNotFoundError:
-    st.markdown("""
-    <div class="news-container">
-        <div style="text-align: center; padding: 3rem; color: #64748b;">
-            <h2>📄 No Report Available</h2>
-            <p>The daily AI news report will be automatically generated at 1:00 AM London time.</p>
+    except FileNotFoundError:
+        st.markdown("""
+        <div class="news-container">
+            <div style="text-align: center; padding: 3rem; color: #64748b;">
+                <h2>📄 No Report Available</h2>
+                <p>The daily AI news report will be automatically generated at 1:00 AM London time.</p>
+            </div>
         </div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-except Exception as e:
-    st.markdown("""
-    <div class="news-container">
-        <div style="text-align: center; padding: 3rem; color: #64748b;">
-            <h2>⚠️ Loading Error</h2>
-            <p>Unable to load the report. Please try again later.</p>
+        """, unsafe_allow_html=True)
+        
+    except Exception as e:
+        st.markdown("""
+        <div class="news-container">
+            <div style="text-align: center; padding: 3rem; color: #64748b;">
+                <h2>⚠️ Loading Error</h2>
+                <p>Unable to load the report. Please try again later.</p>
+            </div>
         </div>
-    </div>
-    """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
+
+# Display the content
+parse_and_display_content()
 
 # Footer
 st.markdown("""
