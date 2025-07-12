@@ -410,7 +410,6 @@ with col2:
         <div class="card-content">
             <strong>Schedule:</strong> 1:00 AM London time<br>
             <strong>Email:</strong> raphael.treffny@teleplanforsberg.com<br>
-            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> raphael.treffny@gmail.com<br>
             <strong>Status:</strong> <span style="color: #10b981; font-weight: 700;">Active</span><br>
             <strong>Sources:</strong> 25+ AI news outlets
         </div>
