@@ -333,7 +333,7 @@ st.markdown("""
         font-weight: 500;
     }
     
-    /* Responsive design */
+    /* Responsive design with mobile text visibility fixes */
     @media (max-width: 768px) {
         .main-title {
             font-size: 2.5rem;
@@ -346,6 +346,56 @@ st.markdown("""
         }
         .section-title {
             font-size: 1.5rem;
+            color: #1e293b !important;
+            text-shadow: none !important;
+            background: none !important;
+            -webkit-text-fill-color: #1e293b !important;
+        }
+        
+        /* Force dark text on mobile for all section headers */
+        .section-header h2,
+        .section-header .section-title,
+        h2.section-title {
+            color: #1e293b !important;
+            background: none !important;
+            -webkit-text-fill-color: #1e293b !important;
+            text-shadow: none !important;
+        }
+        
+        /* Ensure all text in news containers is visible */
+        .news-container h2,
+        .news-container .section-title {
+            color: #1e293b !important;
+            background: none !important;
+            -webkit-text-fill-color: #1e293b !important;
+        }
+        
+        /* Fix any potential gradient text issues on mobile */
+        .section-title {
+            background: none !important;
+            background-clip: unset !important;
+            -webkit-background-clip: unset !important;
+            -webkit-text-fill-color: #1e293b !important;
+        }
+        
+        /* Ensure section icons are visible */
+        .section-icon {
+            color: #1e293b !important;
+        }
+        
+        /* Make sure news item text is always visible */
+        .news-title {
+            color: #1e293b !important;
+        }
+        
+        .news-content {
+            color: #374151 !important;
+        }
+        
+        /* Ensure proper contrast for all mobile elements */
+        .news-container {
+            background: #ffffff !important;
+            color: #1e293b !important;
         }
     }
     
